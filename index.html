@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src='https://cdn.firebase.com/js/client/2.4.1/firebase.js'></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="static/bundle.js"></script>
+		<script src="static/app-bundle.js"></script>
+		<meta name="viewport" content='width=400'>
+		<link rel="stylesheet" href="node_modules/basiccontext/dist/basicContext.min.css">
+		<link rel="stylesheet" href="node_modules/basiccontext/dist/themes/default.min.css">
+		<link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="components/App.css">
+		<link rel="stylesheet" type="text/css" href="components/Game.css">
+		<link rel="stylesheet" type="text/css" href="components/Players.css">
+		<link rel="stylesheet" type="text/css" href="components/Responses.css">
+		<link rel="stylesheet" type="text/css" href="components/Poll.css">
+	</head>
+	<body>
+		<div id="login_page">
+			<div class="title">
+				<div class="title_game">a game</div>
+				<div class="title_of">of</div>
+				<div class="title_things">Things</div>
+			</div>
+			<div id="join_or_host">
+				<div id="join_container" class="login_flex_item">
+		    	<div id="active_games" data-bind="foreach: activeGames">
+		    		<div class='active_game' data-bind="text: animal,
+		    			click: $parent.selectGame.bind($parent)"></div>
+		    	</div>
+		    	<div class="button_group">
+						<button id="join" class="big_button" data-bind="enable: selectedGame, click: onJoinButton">Join</button>
+						<button id="watch" class="big_button" data-bind="enable: selectedGame, click: onWatchButton">Watch</button>
+					</div>
+				</div>
+				<div id="host_container" class="login_flex_item">
+					<div class="button_group">
+						<button id="host" class="big_button" data-bind="click: onHostButton">Host</button>
+					</div>
+				</div>
+			</div>
+			<div id="name_container">
+				<div id="player_config">
+					<div id='picker_and_preview'>
+		        <div class='frame_content preview'>
+		          <div class='body preview'>
+		            <div class='head preview' data-bind="style: { backgroundColor: selectedColor() }"></div>
+		            <div class='torso preview' data-bind="style: { backgroundColor: selectedColor() }"></div>
+		          </div>
+		        </div>
+						<div class="color_picker" data-bind="foreach: colors">
+							<div class="color_swatch" data-bind="foreach: $data">
+								<div class="color_tile" data-bind="style: { backgroundColor: $data }, click: function() { $root.selectedColor($data); }, css: { selected: $root.selectedColor() === $data }">
+									<div class="color_check fa fa-check"></div>
+				 				</div>
+							</div>
+						</div>
+					</div>
+					<div class="input_container name">
+						<input id="name" placeholder="Name" maxlength="12" data-bind="enterKey: onSubmitNameButton">
+	        </div>
+					<button id="submit_name" data-bind="click: onSubmitNameButton, style: { backgroundColor: selectedColor().alt, borderColor: selectedColor().color }">
+						<span class="fa fa-arrow-right"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

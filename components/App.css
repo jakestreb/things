@@ -1,0 +1,291 @@
+@font-face {
+  font-family: "Shabby";
+  src: url("../res/shabby.ttf");
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	font-size: 1.1rem;
+	width: 100%;
+	height: 100%;
+	font-family: "Helvetica";
+	font-weight: 300;
+	margin: 0;
+	background-color: #444444;
+}
+
+.title {
+	position: relative;
+	width: 380px;
+	height: 180px;
+	font-size: 6.0rem;
+	line-height: 5.0rem;
+	margin: 0 auto;
+}
+
+.title_game {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #F6F6F6;
+	font-size: 5.0rem;
+	padding: 0 25px;
+	transform: rotate(-3deg);
+}
+
+.title_of {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color: #F6F6F6;
+	font-size: 5.0rem;
+	padding: 0 25px;
+	transform: rotate(-3deg);
+}
+
+.title_things {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	font-family: "Shabby";
+  color: #FF6E6E;
+}
+
+#login_page {
+	width: 100%;
+	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+}
+
+#join_or_host {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+}
+
+.login_flex_item {
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 1 auto;
+	        flex: 1 1 auto;
+	min-width: 240px;
+	text-align: center;
+}
+
+.basicContext {
+	font-size: 0.8rem;
+	padding: 1px;
+}
+
+#active_games {
+	height: 200px;
+	width: 240px;
+	margin: 10px auto;
+	overflow: scroll;
+	background-color: #666;
+}
+
+.active_game {
+	width: 90%;
+	font-size: 1.2rem;
+	margin: 0 auto;
+	padding: 5px 10px;
+	text-align: left;
+	color: white;
+}
+.active_game:hover {
+	cursor: pointer;
+}
+.active_game.selected {
+	background-color: #AAA;
+}
+
+#no_games {
+	margin-top: 90px;
+	color: #888;
+}
+
+#name_container {
+  display: none;
+  width: 100%;
+  text-align: center;
+}
+
+#submit_name:hover {
+	color: #777;
+}
+
+#picker_and_preview {
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-end;
+	width: 340px;
+	height: 300px;
+	margin: 40px auto;
+}
+
+.frame_content.preview {
+	width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  margin: auto 15px;
+  position: relative;
+  left: 15%;
+}
+
+.body.preview {
+	margin-top: 35px;
+}
+
+.head.preview {
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+  margin-left: 11px;
+}
+
+.torso.preview {
+	width: 75px;
+	height: 105px;
+	border-radius: 30px;
+  margin-left: -11px;
+}
+
+.color_picker {
+	position: relative;
+	height: 260px;
+	width: 135px;
+	margin-right: 40px;
+}
+
+.color_swatch {
+	position: absolute;
+	height: 270px;
+	width: 70px;
+	background-color: white;
+  margin: 5px 0 0 0;
+  bottom: 0;
+}
+.color_swatch:first-child {
+	transform: rotate(-2deg);
+	left: 0;
+}
+.color_swatch:last-child {
+	transform: rotate(15deg);
+	right: 0;
+}
+
+.color_tile {
+	position: relative;
+	display: inline-block;
+	float: left;
+	width: 70px;
+	height: 60px;
+	margin: 0 0 2px 0;
+}
+
+.color_tile:hover {
+	cursor: pointer;
+}
+
+.color_label {
+	position: absolute;
+  right: -13px;
+  top: 20px;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  color: #718BB7;
+  font-size: 0.5rem;
+}
+
+.color_tile.selected > .color_check {
+	display: block;
+
+}
+.color_check {
+	position: absolute;
+	display: none;
+	top: 35%;
+	left: 35%;
+	color: white;
+}
+
+button {
+	line-height: 40px;
+	vertical-align: bottom;
+	border: none;
+	margin: 0 10px;
+	min-width: 40px;
+	padding: 0 5px;
+	background: none;
+	font-size: 1.4rem;
+	font-weight: 300;
+	outline: none;
+	color: white;
+}
+button:hover {
+	color: #FFB2B2;
+	cursor: pointer;
+}
+button:disabled {
+	color: #FFB2B2;
+	cursor: default;
+}
+
+.big_button {
+	height: 60px;
+	width: 120px;
+	font-size: 1.6rem;
+}
+.big_button:disabled,
+.big_button:hover {
+	color: #888;
+}
+
+.button_group {
+	margin: 0 auto;
+}
+
+#name {
+	background-color: white;
+}
+.input_container.name {
+	width: 40%;
+	min-width: 200px;
+}
+
+.input_container {
+	position: relative;
+  display: inline-block;
+	width: 60%;
+	height: 36px;
+}
+input {
+	width: 100%;
+  height: 36px;
+	outline: none;
+	padding: 2px 4px;
+	vertical-align: bottom;
+	font-size: 1.1rem;
+	font-weight: 300;
+	background-color: #FFB2B2;
+	border: none;
+}

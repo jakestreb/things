@@ -1,0 +1,246 @@
+
+#players {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+    align-items: center;
+  padding: 30px;
+  min-height: 100px;
+}
+
+.body {
+  display: inline-block;
+  margin: 30px 0;
+  width: 50px;
+  height: 75px;
+}
+
+.head {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  margin: 0 15px;
+}
+
+.torso {
+  width: 50px;
+  height: 50px;
+  border-radius: 20px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  margin: 5px 0;
+}
+
+.left_out {
+  -webkit-animation: left 0.7s linear;
+          animation: left 0.7s linear;
+  margin-left: -70px;
+}
+.left_in {
+  -webkit-animation: left 0.7s linear;
+          animation: left 0.7s linear;
+  -webkit-animation-direction: reverse;
+          animation-direction: reverse;
+  margin-left: 0;
+}
+
+.right_out {
+  -webkit-animation: right 0.7s linear;
+          animation: right 0.7s linear;
+  margin-left: 70px;
+}
+.right_in {
+  -webkit-animation: right 0.7s linear;
+          animation: right 0.7s linear;
+  -webkit-animation-direction: reverse;
+          animation-direction: reverse;
+  margin-left: 0;
+}
+
+@-webkit-keyframes left {
+  0% {  margin-left: 0; margin-top: 31px; }
+  20%  {  margin-left: -24px; margin-top: 34px; }
+  40%  {  margin-left: -48px; margin-top: 31px; }
+  60%  {  margin-left: -72px; margin-top: 33px; }
+  80%  {  margin-left: -96px; margin-top: 30px; }
+  100%   {  margin-left: -120px; margin-top: 32px; }
+}
+
+@keyframes left {
+  from {  margin-left: 0; margin-top: 31px; }
+  20%  {  margin-left: -24px; margin-top: 34px; }
+  40%  {  margin-left: -48px; margin-top: 31px; }
+  60%  {  margin-left: -72px; margin-top: 33px; }
+  80%  {  margin-left: -96px; margin-top: 30px; }
+  to   {  margin-left: -120px; margin-top: 32px; }
+}
+
+@-webkit-keyframes right {
+  0% {  margin-left: 0; margin-top: 34px; }
+  20%  {  margin-left: 24px; margin-top: 37px; }
+  40%  {  margin-left: 48px; margin-top: 34px; }
+  60%  {  margin-left: 72px; margin-top: 37px; }
+  80%  {  margin-left: 96px; margin-top: 34px; }
+  100%   {  margin-left: 120px; margin-top: 35px; }
+}
+
+@keyframes right {
+  from {  margin-left: 0; margin-top: 34px; }
+  20%  {  margin-left: 24px; margin-top: 37px; }
+  40%  {  margin-left: 48px; margin-top: 34px; }
+  60%  {  margin-left: 72px; margin-top: 37px; }
+  80%  {  margin-left: 96px; margin-top: 34px; }
+  to   {  margin-left: 120px; margin-top: 35px; }
+}
+
+.frame {
+  flex: 1 0 auto;
+  position: relative;
+  overflow: hidden;
+  margin: 0 20px;
+  width: 80px;
+  height: 120px;
+  transition: all .5s;
+}
+
+.frame.collapsed {
+  width: 0;
+  margin: 0;
+  flex: 0 1 auto;
+}
+
+.frame_content {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  text-align: center;
+  overflow: hidden;
+  background: #525252;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  transition: all .5s;
+}
+
+.frame.collapsed > .frame_content {
+  top: 40px;
+  width: 0;
+  height: 0;
+}
+
+.sign {
+  position: absolute;
+  width: 30px;
+  height: 35px;
+  bottom: -40px;
+  left: 25px;
+  background-color: #FBFBFB;
+  -webkit-transition: bottom .25s;
+  transition: bottom .25s;
+}
+.sign.lifted {
+  bottom: -10px;
+}
+.sign.unlifted {
+  /* Hacky way of hiding/reverting signs during/after movement */
+  bottom: -40px !important;
+}
+
+.sign_content {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #555;
+}
+
+.player_name {
+  position: absolute;
+  opacity: 1.0;
+  color: white;
+  font-family: "Shabby";
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-align: center;
+  cursor: default;
+  white-space: nowrap;
+  bottom: 10px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  transition: opacity .3s ease .2s;
+}
+
+.frame.collapsed > .player_menu,
+.frame.collapsed > .score_adjuster,
+.frame.collapsed > .player_name {
+  opacity: 0.0;
+  transition: opacity .2s ease;
+}
+
+.score_adjuster {
+  position: absolute;
+  opacity: 1.0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  bottom: 0;
+  height: 20px;
+  width: 60px;
+  color: #555;
+  font-family: "Shabby";
+  font-size: 2.0rem;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+.minus {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 0;
+  line-height: 20px;
+  text-align: center;
+}
+.score_adjustment {
+  font-family: "Helvetica";
+  font-size: 1.0rem;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 20px;
+  line-height: 22px;
+  text-align: center;
+}
+.plus {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  right: 0;
+  line-height: 20px;
+  text-align: center;
+}
+.minus:hover,
+.plus:hover {
+  color: #777;
+}
+
+.player_menu {
+  position: absolute;
+  opacity: 1.0;
+  top: 2px;
+  right: 50%;
+  font-size: 0.8rem;
+  color: #BBB;
+  -webkit-transform: translate(40px, 0);
+          transform: translate(40px, 0);
+}
+.player_menu:hover {
+  color: black;
+  cursor: pointer;
+}

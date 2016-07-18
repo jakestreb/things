@@ -1,0 +1,115 @@
+pie {
+  width: 72px;
+  height: 72px;
+  display: block;
+  border-radius: 50%;
+  float: left;
+  margin: 5px;
+}
+
+.timer {
+  position: relative;
+  margin: 10px auto;
+  width: 84px;
+  height: 84px;
+}
+
+.left_half {
+  position: relative;
+  top: 0;
+  left: 0;
+  background-image: -webkit-linear-gradient(left, #FFB2B2 50%, transparent 50%);
+  background-image: linear-gradient(90deg, #FFB2B2 50%, transparent 50%);
+}
+
+.slice {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: -webkit-linear-gradient(left, transparent 50%, #FFB2B2 50%);
+  background-image: linear-gradient(90deg, transparent 50%, #FFB2B2 50%);
+}
+
+.mask_slice {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  background-image: -webkit-linear-gradient(left, transparent 50%, #FF6E6E 50%);
+  background-image: linear-gradient(90deg, transparent 50%, #FF6E6E 50%);
+}
+
+#things_prompt {
+  font-family: "Shabby";
+  font-size: 5.0rem;
+  color: #FFB2B2;
+  transform: rotate(-5deg);
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 200px;
+  margin-bottom: -20px;
+  pointer-events: none;
+}
+
+@media screen and (max-width : 600px) {
+  #things_prompt {
+    font-size: 4.0rem;
+  }
+}
+
+#choices {
+  display: table;
+  margin: 0 auto;
+}
+
+.choice_container {
+  position: relative;
+  margin: 10px 0;
+  font-size: 1.4rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+@media screen and (max-width : 600px) {
+  .choice_container {
+    font-size: 1.0rem;
+  }
+}
+
+.choice_container.selected > .choice {
+  background-color: #888;
+}
+.choice_container.winner {
+  color: #555;
+  background: none;
+  box-shadow: none;
+}
+.choice_container:hover {
+  cursor: pointer;
+}
+
+.choice_container.A .choice {
+  transform: rotate(1deg);
+}
+.choice_container.B .choice {
+  transform: rotate(-0.5deg);
+}
+.choice_container.C .choice {
+  transform: rotate(1deg);
+}
+
+.choice {
+  display: table-cell;
+  padding: 2px 15px;
+  font-weight: 300;
+  background-color: #F6F6F6;
+}
+
+.choice_label {
+  display: table-cell;
+  text-align: center;
+  font-weight: 900;
+  padding: 0 10px;
+  color: #FFB2B2;
+}

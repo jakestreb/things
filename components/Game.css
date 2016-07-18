@@ -1,0 +1,188 @@
+#game_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#loading_screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #FF6E6E;
+  z-index: 100;
+}
+
+.spin {
+  -webkit-animation: spin 1s linear;
+  animation: spin 1s linear;
+  animation-iteration-count: infinite;
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 86px;
+  height: 86px;
+}
+
+.loader_pie {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  background-image: -webkit-linear-gradient(left, transparent 50%, #FFB9B9 50%);
+  background-image: linear-gradient(90deg, transparent 50%, #FFB9B9 50%);
+}
+
+.loader_inner_pie {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 7px;
+  left: 7px;
+  background-image: -webkit-linear-gradient(left, transparent 50%, #FF6E6E 50%);
+  background-image: linear-gradient(85deg, transparent 50%, #FF6E6E 50%);
+}
+
+.loader_mask {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  top: 0;
+  left: 0;
+  background-image: -webkit-linear-gradient(left, transparent 50%, #FF6E6E 50%);
+  background-image: linear-gradient(150deg, transparent 50%, #FF6E6E 50%);
+}
+
+@keyframes spin {
+  from {  transform: rotate(0deg); }
+  to   {  transform: rotate(360deg); }
+}
+
+#main_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #FF6E6E;
+  overflow: hidden;
+}
+
+#main_content_trim {
+  height: 0;
+  width: 0;
+  margin: -3px auto;
+  border: 90px solid transparent;
+  border-top: 30px solid #FF6E6E;
+  border-bottom: 0;
+}
+
+.flexy {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  -webkit-transition: flex-grow .5s ease, -webkit-box-flex .5s ease;
+  transition: flex-grow .5s ease, -webkit-box-flex .5s ease;
+  transition: flex-grow .5s ease;
+  transition: flex-grow .5s ease, -webkit-box-flex .5s ease, -ms-flex-positive .5s ease;
+}
+
+#header {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+  padding: 5px;
+}
+
+#header_name {
+  display: inline-block;
+  height: 100%;
+  color: white;
+  font-size: 1.1rem;
+  padding-left: 8px;
+  line-height: 30px;
+  font-weight: 500;
+}
+
+#header_host {
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 30px;
+  color: #FFB9B9;
+}
+
+#header_game {
+  display: inline-block;
+  height: 100%;
+  font-size: 1.1rem;
+  padding-left: 2px;
+  color: #FFB9B9;
+}
+
+#prompt_container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#questions {
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+}
+
+#begin {
+  font-size: 2.5rem;
+}
+
+#scoring_container,
+#guessed_container,
+#begin_container,
+#submit_container {
+  text-align: center;
+}
+
+#settings {
+  float: right;
+  margin: 8px;
+  color: white;
+}
+#settings:hover {
+  color: #FFB9B9;
+  cursor: pointer;
+}
+
+.alert_backdrop {
+  background-color: #444;
+}
+
+.alert {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.alert_text {
+  margin: 300px auto 20px auto;
+}
+.alert_button {
+  margin: 0 auto;
+}
